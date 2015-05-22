@@ -1,0 +1,78 @@
+<%-- 
+Author: Payman Rowhani & Artin Rezaie 
+Copyright (C) Artman Systems Inc. 2004-2009
+--%>
+
+<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <title>Artman CMS System</title>
+</head>
+<body>
+    <form id="mainForm" runat="server">
+        <div>
+            <asp:SiteMapDataSource ID="ClientSiteMap" runat="server" />
+            <div align="right">
+                <asp:ImageButton ID="HomeButton" runat="server" Style="left: 820px;
+                    position: absolute; top: 15px" PostBackUrl="~/Home.aspx" CausesValidation="False" ImageUrl="~/images/Home.jpg" />
+                  
+                <asp:ImageButton ID="LogoutButton" runat="server" 
+                    Style="left: 905px; position: absolute; top: 15px" OnClick="LogoutButton_Click"
+                    CausesValidation="False" ImageUrl="~/images/Logout.jpg" />
+                    
+                <asp:Label ID="LoggedInUserLabel" runat="server" Font-Bold="True" ForeColor="Lime"
+                    Style="left: 836px; position: absolute; top: 41px"></asp:Label>
+                <asp:Label Style="position: absolute; left: 720px; top: 42px;" ID="logoutLabel" runat="server"
+                    Text="You are successfully signed out." Font-Names="Cooper Black" Font-Size="11pt"
+                    ForeColor="Red" Width="265px"></asp:Label>
+            </div>
+        </div>
+        <table border="0" align="center" cellpadding="0" cellspacing="0" style="height: 1200px">
+            <tr width="980px">
+                <td colspan="2" style="height: 59px">
+                    <asp:Image ID="Banner" runat="server" Height="111px" 
+                        Width="980px" Style="display: block; float: none; visibility: visible;" ImageUrl="~/images/Banner.jpg" />                       
+                        </td>
+            </tr>
+            <tr width="980px">
+                <td style="width: 20px; height: 15px" bgcolor="LightSteelBlue" background="/ArtmanCMS/images/Background.jpg">
+                    
+                    <asp:MultiView ID="NavigatorMultiView" runat="server" ActiveViewIndex="0">
+                        <asp:View ID="EmptyView" runat="server">
+                        </asp:View>
+                        <asp:View ID="MenuView" runat="server">
+                            <asp:TreeView ID="TreeView1" runat="server" DataSourceID="ClientSiteMap" ForeColor="#ffcc66" Font-Bold="True" ImageSet="Arrows">
+                                <SelectedNodeStyle ForeColor="Yellow" Font-Bold="True" Font-Underline="True" HorizontalPadding="0px" VerticalPadding="0px" />
+                                <ParentNodeStyle Font-Bold="False" />                                                               
+                                <NodeStyle Font-Names="Verdana" Font-Size="8pt" ForeColor="#FFCC66" HorizontalPadding="5px"
+                                    NodeSpacing="0px" VerticalPadding="0px" />
+                            </asp:TreeView>
+                        </asp:View>
+                        <asp:View ID="LinkView" runat="server">
+                            &nbsp; &nbsp; &nbsp;&nbsp;
+                            <asp:HyperLink ID="HyperLink1" runat="server" Font-Bold="True" NavigateUrl="~/User/CreateNewPage.aspx"
+                                Font-Size="12pt" Width="154px" ForeColor="#FFFF66">Create New Page</asp:HyperLink><br />
+                            <strong>&nbsp; &nbsp; &nbsp;&nbsp; </strong>
+                            <asp:HyperLink ID="HyperLink3" runat="server" Font-Bold="True" NavigateUrl="~/User/CreateNewTemplate.aspx"
+                                Font-Size="12pt" Width="168px" ForeColor="#FFFF66">Create New Template</asp:HyperLink>
+                            &nbsp;&nbsp;</asp:View>
+                    </asp:MultiView>&nbsp;
+                </td>
+                <td style="width: 785px" rowspan="2">
+                    <asp:Panel ID="MainPanel" runat="server" Height="1250px" Width="785px">
+                        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                        </asp:ContentPlaceHolder>
+                    </asp:Panel>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 20px; height: 700px" bgcolor="LightSteelBlue" background="/ArtmanCMS/images/Background.jpg" >
+                    <asp:Panel ID="Panel1" runat="server" Height="50px" Width="187px">
+                    </asp:Panel>
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

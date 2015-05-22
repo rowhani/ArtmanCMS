@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<!-- 
+Author: Payman Rowhani & Artin Rezaie 
+Copyright (C) Artman Systems Inc. 2004-2009
+-->
+
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >  
+  <siteMapNode url="Home.aspx" title="Home"  description="">    
+    <siteMapNode url="Admin\CreateAccount.aspx" title="Create Account"  description="" />
+    <siteMapNode url="Admin\EditGlobalSetting.aspx" title="Edit Global Setting"  description="" />
+    <siteMapNode url="Admin\PublishPage.aspx" title="Publish/Unpublish Pages"  description="" />    
+  </siteMapNode>  
+</siteMap>
